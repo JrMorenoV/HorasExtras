@@ -1,0 +1,89 @@
+
+<nav>
+<form class="form-row" [formGroup]="empleadosForm">
+    <div class="form-group col-md-2">
+        <label for="cedula" class="sr-only">Número de Documento</label>
+        <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" formControlName="cedula" required focus/>
+        <span class="text-danger"
+        *ngIf="empleadosForm.controls['cedula'].hasError('required') && empleadosForm.controls['cedula'].touched 
+        ">Este campo es Requerido</span>
+        <span class="text-danger" 
+        *ngIf="empleadosForm.controls['cedula'].hasError('pattern') && empleadosForm.controls['cedula'].touched"
+        >Este campo corresponde a un valor Númerico</span>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="nombre" class="sr-only">Nombres</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" formControlName="nombre" required />
+        <span class="text-danger" 
+        *ngIf="empleadosForm.controls['nombre'].touched && empleadosForm.controls['nombre'].hasError('required')
+        ">Este campo es Requerido</span>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="nombre" class="sr-only">Apellidos</label>
+        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" formControlName="apellido" required/>
+        <span class="text-danger"
+        *ngIf="empleadosForm.controls['apellido'].touched && empleadosForm.controls['apellido'].hasError('required')
+        ">Este campo es Requerido</span>
+    </div>
+    
+    <div class="form-group col-md-2">
+        <label for="cargo" class="sr-only">Cargo</label>
+        <input type="text" name="cargo" id="cargo" class="form-control" placeholder="Cargo" formControlName="cargo" required/>
+        <span class="text-danger"
+        *ngIf="empleadosForm.controls['cargo'].hasError('required') && empleadosForm.controls['cargo'].touched"
+        >Este campo es Requerido</span>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="area" class="sr-only">Area de Trabajo</label>
+        <input type="text" name="area" id="area" class="form-control" placeholder="Area de Trabajo" formControlName="area" required/>
+        <span class="text-danger"
+        *ngIf="empleadosForm.controls['area'].hasError('required') && empleadosForm.controls['area'].touched"
+        >Este campo es Requerido</span>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="salario" class="sr-only">Salario</label>
+        <input type="number" name="salario" id="salario" class="form-control" placeholder="Salario" formControlName="salario" required/>
+        <span class="text-danger"
+        *ngIf="empleadosForm.controls['salario'].hasError('required') && empleadosForm.controls['salario'].touched
+        ">Este campo es Requerido</span>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="correo" class="sr-only">Correo </label>
+        <input type="text" name="correo" id="correo" class="form-control" placeholder="Correo" formControlName="correo" required/>
+        <span class="text-danger"
+        *ngIf="empleadosForm.controls['correo'].hasError('required') && empleadosForm.controls['correo'].touched
+        ">Este campo es Requerido</span>
+        <span class="text-danger"
+        *ngIf="empleadosForm.controls['correo'].hasError('email') && empleadosForm.controls['correo'].touched
+        ">El valor ingresado no es un Email</span>
+    </div>
+    <br />
+    <div class="col">
+        <button type="submit" class="btn btn-primary" (click)="agregarPersona()" [disabled]="empleadosForm.invalid" >
+            Agregar
+        </button>
+    </div>
+</form>
+</nav>
+
+
+<!-- <div class = "container">
+    <div class = "row">
+        <div class = "col">
+            <h1>Listado de Empleados</h1>
+            <button class="btn btn-primary" 
+            (click)="agregarPersona()">Agregar Persona</button>
+            <p *ngIf="mostrar; else sinPersona"> {{mensaje}} con el título de {{titulo}} </p>
+            <app-persona></app-persona>
+            <ng-template #sinPersona>
+                <p>No se ha agregado ninguna persona</p>
+            </ng-template>
+
+            <label>Titulo Persona</label>
+            <input type="text" class="form-control" 
+            [(ngModel)]="titulo" >
+            {{titulo}}
+
+        </div>
+    </div>
+</div> -->
